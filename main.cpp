@@ -1,25 +1,21 @@
 #include<iostream>
 #include "sort.h"
+#include "Human.h"
 #include <ctime>
 #include <stdlib.h>
+#include "Human.h"
 
 using namespace std;
 
 int main(void) {
-	/*
-	SortableVector<int> vec;
-	srand((unsigned)time(0));
-	for (int i = 0; i < 10; i++) {
-		vec.push_back(rand());
-		cout << vec[i]<<" ";
+	setlocale(LC_ALL, "Russian");
+	SortableVector<Human> vec;
+	if (read_hum("phone_book.txt", vec) == 0) {
+		cout << "не получается окрыть входной файл";
 	}
-	cout << endl;
-	vec.sort();
-	for (int i = 0; i < 10; i++) {	
-		cout << vec[i] << " ";
-	}
-	*/
-	char a[] = "AAAAA";
+	cout << "Введите новые записи в телефонную книгу" << endl;
+	cout << "Оставте пустую строку, если ввод записей закончен" << endl;
+	write_hum("phone_book.txt", vec);
 	system("pause");
 	return 0;
 }
